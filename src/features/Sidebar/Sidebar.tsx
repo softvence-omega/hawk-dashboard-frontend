@@ -15,6 +15,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+// import logo from "@/assets/logoSVG.svg";
 
 const Sidebar = () => {
   const isOpen = useSidebarStore((state) => state.isOpen);
@@ -28,16 +29,15 @@ const Sidebar = () => {
   const menuItems = [
     { to: "/dashboard", icon: <IoHome className="w-5 h-5" />, text: "Home" },
     {
-      to: "/analytics",
+      to: "/property",
       icon: <IoBarChartSharp className="w-5 h-5" />,
-      text: "Analytics",
+      text: "Property Listing",
     },
     {
       to: "/settings",
       icon: <IoMdSettings className="w-5 h-5" />,
       text: "Settings",
     },
-    { to: "/about", icon: <IoMdSettings className="w-5 h-5" />, text: "About" },
   ];
 
   return (
@@ -53,7 +53,7 @@ const Sidebar = () => {
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-lg">
           {isOpen ? (
-            "Dashboard"
+            "AZ Deal Hub"
           ) : (
             <TbLayoutDashboardFilled className="w-7 h-7" />
           )}

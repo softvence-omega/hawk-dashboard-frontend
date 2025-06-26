@@ -7,6 +7,7 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 import { Outlet } from "react-router-dom";
 import { MdOutlineLogout } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
+import logoSVG from "@/assets/logoSVG.svg";
 
 const DashboardLayout = () => {
   const { theme, toggleTheme } = useThemeStore();
@@ -16,6 +17,9 @@ const DashboardLayout = () => {
       <Sidebar />
       <div className="flex-1 ">
         <header className="bg-gray-200 dark:bg-primary-dark border-b p-4 flex justify-between items-center">
+          <div>
+            <img src={logoSVG} alt="" className="w-8" />
+          </div>
           <div className="flex items-center justify-center mx-auto space-x-4">
             {/* <h1 className="text-xl font-semibold">D</h1> */}
 
@@ -42,7 +46,10 @@ const DashboardLayout = () => {
             {/* User profile/avatar can go here */}
             <div className="flex gap-4">
               {/* <div className="h-8 w-8 rounded-full bg-purple-400 dark:bg-gray-600"></div> */}
-              <Button onClick={logout}>
+              <Button
+                onClick={logout}
+                className="bg-primary-dark hover:bg-black"
+              >
                 <MdOutlineLogout />
                 Logout
               </Button>
