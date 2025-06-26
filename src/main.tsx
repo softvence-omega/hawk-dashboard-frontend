@@ -1,10 +1,9 @@
 import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
 import { useThemeStore } from "./store/useThemeStore";
-import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import AppRoutes from "./routes/routes"; // Import your router provider
 
 const ThemeInitializer = () => {
   const initializeTheme = useThemeStore((state) => state.initializeTheme);
@@ -13,14 +12,12 @@ const ThemeInitializer = () => {
     initializeTheme();
   }, [initializeTheme]);
 
-  return <App />;
+  return <AppRoutes />; // Use AppRoutes instead of App
 };
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <ThemeInitializer />
-      <ToastContainer />
-    </BrowserRouter>
+    <ThemeInitializer />
+    <ToastContainer />
   </StrictMode>
 );

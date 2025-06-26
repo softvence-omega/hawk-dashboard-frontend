@@ -20,10 +20,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-primary text-white">
+    <div className="min-h-screen flex items-center justify-center bg-primary/90 text-white">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded space-y-4 w-[400px] py-12 shadow-2xl"
+        className="bg-white p-6 rounded space-y-8 w-[500px] py-12 shadow-2xl"
       >
         <h2 className="text-xl text-primary font-bold text-center">Login</h2>
         <input

@@ -46,7 +46,7 @@ const Sidebar = () => {
       animate={isOpen ? "open" : "closed"}
       variants={sidebarVariants}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={`bg-primary text-white dark:bg-primary-dark border-r min-h-screen p-4 overflow-hidden flex flex-col ${
+      className={`bg-[#10207c] text-white dark:bg-primary-dark border-r min-h-screen p-4 overflow-hidden flex flex-col ${
         !isOpen ? "px-10 items-center" : ""
       }`}
     >

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
 import DashboardLayout from "@/layout/DashboardLayout";
 import About from "@/pages/About";
@@ -8,26 +8,30 @@ import Setting from "@/pages/Setting";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
 
-const AppRoutes = () => {
-  return (
-    <Routes>
-      {/* <Route path="/" element={<div className="text-white">Home</div>} /> */}
-      <Route path="/" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route
-        element={
-          <PrivateRoute>
-            <DashboardLayout />
-          </PrivateRoute>
-        }
-      >
-        <Route path="/dashboard" element={<Home />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/settings" element={<Setting />} />
-        <Route path="/about" element={<About />} />
-      </Route>
-    </Routes>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "/dashboard", element: <Home /> },
+      { path: "/analytics", element: <Analytics /> },
+      { path: "/settings", element: <Setting /> },
+      { path: "/about", element: <About /> },
+    ],
+  },
+]);
+
+const AppRoutes = () => <RouterProvider router={router} />;
 
 export default AppRoutes;
