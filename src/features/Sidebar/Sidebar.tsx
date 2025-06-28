@@ -1,21 +1,17 @@
 import { useSidebarStore } from "@/store/useSidebarStore";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { IoBarChartSharp } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
-import { FaLongArrowAltLeft } from "react-icons/fa";
-import { FaLongArrowAltRight } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { TbLayoutDashboardFilled } from "react-icons/tb";
-
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-// import logo from "@/assets/logoSVG.svg";
+import { motion } from "framer-motion";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
   const isOpen = useSidebarStore((state) => state.isOpen);
@@ -25,6 +21,15 @@ const Sidebar = () => {
     open: { width: "16rem" },
     closed: { width: "4rem" },
   };
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setOpen(window.innerWidth >= 768);
+  //   };
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, [setOpen]);
 
   const menuItems = [
     { to: "/dashboard", icon: <IoHome className="w-5 h-5" />, text: "Home" },
@@ -46,19 +51,11 @@ const Sidebar = () => {
       animate={isOpen ? "open" : "closed"}
       variants={sidebarVariants}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={`bg-[#10207c] text-white dark:bg-primary-dark border-r min-h-screen p-4 overflow-hidden flex flex-col ${
-        !isOpen ? "px-10 items-center" : ""
-      }`}
+      className="bg-[#10207c] text-white dark:bg-primary-dark border-r min-h-screen p-4 overflow-hidden flex flex-col"
     >
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-lg">
-          {isOpen ? (
-            "AZ Deal Hub"
-          ) : (
-            <TbLayoutDashboardFilled className="w-7 h-7" />
-          )}
-        </h2>
-        <Button className="ms-1" variant="ghost" size="sm" onClick={toggle}>
+        <h2 className="font-bold text-lg">{isOpen ? "Az Deal Hub" : ""}</h2>
+        <Button className="mt-3" variant="ghost" size="sm" onClick={toggle}>
           {isOpen ? <FaLongArrowAltLeft /> : <FaLongArrowAltRight />}
         </Button>
       </div>
@@ -75,25 +72,37 @@ const Sidebar = () => {
                 {!isOpen ? (
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Link
+                      <NavLink
                         to={item.to}
-                        className="w-10 h-10 flex items-center justify-center p-2 rounded-lg hover:bg-white hover:text-black dark:hover:bg-primary transition-colors"
+                        className={({ isActive }) =>
+                          `w-10 h-10 flex items-center justify-center p-2 rounded-lg transition-colors text-white
+                          hover:bg-white hover:text-black dark:hover:bg-primary
+                          ${
+                            isActive
+                              ? "bg-white text-black dark:bg-primary"
+                              : ""
+                          }`
+                        }
                       >
                         {item.icon}
-                      </Link>
+                      </NavLink>
                     </TooltipTrigger>
                     <TooltipContent side="right" className="ml-2">
                       {item.text}
                     </TooltipContent>
                   </Tooltip>
                 ) : (
-                  <Link
+                  <NavLink
                     to={item.to}
-                    className="flex items-center justify-start p-2 rounded-lg hover:bg-white hover:text-black dark:hover:bg-primary transition-colors"
+                    className={({ isActive }) =>
+                      `flex items-center justify-start p-2 rounded-lg transition-colors
+                      hover:bg-white hover:text-black dark:hover:bg-primary
+                      ${isActive ? "bg-white text-black dark:bg-primary" : ""}`
+                    }
                   >
                     {item.icon}
                     <span className="ml-2 font-medium">{item.text}</span>
-                  </Link>
+                  </NavLink>
                 )}
               </motion.li>
             ))}

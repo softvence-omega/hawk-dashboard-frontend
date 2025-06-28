@@ -47,7 +47,7 @@ const Home = () => {
             <span className="font-semibold text-gray-900">Admin Dashboard</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/property-dashboard">
+            <Link to="#">
               <Button variant="outline" size="sm" className="border-gray-300">
                 View Properties
               </Button>
