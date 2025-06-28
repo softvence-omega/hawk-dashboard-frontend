@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
+      {/* <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-gray-900">Admin Dashboard</span>
@@ -57,7 +57,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Main Content */}
       <main className="p-6">
