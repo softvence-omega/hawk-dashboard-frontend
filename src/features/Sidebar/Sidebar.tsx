@@ -162,7 +162,7 @@ const Sidebar = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={toggle}
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black/70 z-40"
         />
       )}
 
