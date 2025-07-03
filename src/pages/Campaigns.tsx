@@ -1,5 +1,5 @@
-import React from 'react';
-import { MoreHorizontal } from 'lucide-react';
+import React from "react";
+import { MoreHorizontal } from "lucide-react";
 
 const Campaigns = () => {
   const campaigns = [
@@ -16,9 +16,9 @@ const Campaigns = () => {
       engagement: {
         replies: "15.0%",
         ctaClicks: "$22.0%",
-        signups: "8 (3.2%)"
+        signups: "8 (3.2%)",
       },
-      trendData: [20, 35, 45, 40, 50, 55, 48, 52]
+      trendData: [20, 35, 45, 40, 50, 55, 48, 52],
     },
     {
       id: 2,
@@ -33,9 +33,9 @@ const Campaigns = () => {
       engagement: {
         opens: "45.0%",
         ctaClicks: "$11.0%",
-        signups: "12 (2.7%)"
+        signups: "12 (2.7%)",
       },
-      trendData: [60, 45, 35, 30, 25, 35, 40, 42]
+      trendData: [60, 45, 35, 30, 25, 35, 40, 42],
     },
     {
       id: 3,
@@ -50,9 +50,9 @@ const Campaigns = () => {
       engagement: {
         opens: "60.0%",
         ctaClicks: "$18.0%",
-        signups: "54 (5.4%)"
+        signups: "54 (5.4%)",
       },
-      trendData: [30, 45, 55, 60, 65, 58, 52, 50]
+      trendData: [30, 45, 55, 60, 65, 58, 52, 50],
     },
     {
       id: 4,
@@ -67,10 +67,10 @@ const Campaigns = () => {
       engagement: {
         replies: "0.0%",
         ctaClicks: "$0.0%",
-        signups: "0 (0.0%)"
+        signups: "0 (0.0%)",
       },
-      trendData: [0, 0, 0, 0, 0, 0, 0, 0]
-    }
+      trendData: [0, 0, 0, 0, 0, 0, 0, 0],
+    },
   ];
 
   interface CampaignEngagement {
@@ -103,19 +103,21 @@ const Campaigns = () => {
     const max = Math.max(...data);
     const min = Math.min(...data);
     const range = max - min || 1;
-    
-    const points = data.map((value, index) => {
-      const x = (index / (data.length - 1)) * 100;
-      const y = 100 - ((value - min) / range) * 100;
-      return `${x},${y}`;
-    }).join(' ');
+
+    const points = data
+      .map((value, index) => {
+        const x = (index / (data.length - 1)) * 100;
+        const y = 100 - ((value - min) / range) * 100;
+        return `${x},${y}`;
+      })
+      .join(" ");
 
     return (
       <svg width="120" height="40" className="text-blue-500">
         <polyline
           points={points}
           fill="none"
-          stroke="currentColor"
+          stroke="currentColor" 
           strokeWidth="2"
           className="drop-shadow-sm"
         />
@@ -127,9 +129,11 @@ const Campaigns = () => {
     <div className="bg-gray-50 min-h-screen p-6">
       <div className=" mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-900">AI Campaign Management</h1>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 leading-tight">
+            AI Campaign Management
+          </h1>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base lg:text-lg whitespace-nowrap self-start sm:self-auto">
             Launch New Campaign
           </button>
         </div>
@@ -168,7 +172,9 @@ const Campaigns = () => {
                   <tr key={campaign.id} className="hover:bg-gray-50">
                     <td className="py-4 px-6">
                       <div className="flex items-center">
-                        <div className={`w-2 h-2 rounded-full mr-3 ${campaign.statusColor}`}></div>
+                        <div
+                          className={`w-2 h-2 rounded-full mr-3 ${campaign.statusColor}`}
+                        ></div>
                         <div>
                           <div className="text-sm font-medium text-gray-900 mb-1">
                             {campaign.name}
@@ -180,11 +186,17 @@ const Campaigns = () => {
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{campaign.targetSegment}</div>
+                      <div className="text-sm text-gray-900">
+                        {campaign.targetSegment}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900 mb-1">Channel: {campaign.channel}</div>
-                      <div className="text-sm text-gray-500">Offer: {campaign.offer}</div>
+                      <div className="text-sm text-gray-900 mb-1">
+                        Channel: {campaign.channel}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Offer: {campaign.offer}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="text-sm text-gray-900 mb-1">
@@ -197,13 +209,21 @@ const Campaigns = () => {
                     <td className="py-4 px-6">
                       <div className="space-y-1">
                         {campaign.engagement.replies && (
-                          <div className="text-sm text-gray-900">Replies: {campaign.engagement.replies}</div>
+                          <div className="text-sm text-gray-900">
+                            Replies: {campaign.engagement.replies}
+                          </div>
                         )}
                         {campaign.engagement.opens && (
-                          <div className="text-sm text-gray-900">Opens: {campaign.engagement.opens}</div>
+                          <div className="text-sm text-gray-900">
+                            Opens: {campaign.engagement.opens}
+                          </div>
                         )}
-                        <div className="text-sm text-gray-900">CTA Clicks: {campaign.engagement.ctaClicks}</div>
-                        <div className="text-sm text-gray-500">Signups (CVR): {campaign.engagement.signups}</div>
+                        <div className="text-sm text-gray-900">
+                          CTA Clicks: {campaign.engagement.ctaClicks}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          Signups (CVR): {campaign.engagement.signups}
+                        </div>
                       </div>
                     </td>
                     <td className="py-4 px-6">

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Play, FileText } from 'lucide-react';
+import React from "react";
+import { Play, FileText } from "lucide-react";
 
-const  ScraperStatus = () => {
+const ScraperStatus = () => {
   const scrapers = [
     {
       id: 1,
@@ -12,7 +12,7 @@ const  ScraperStatus = () => {
       found: "12 New, 5 Updated",
       duration: "45.2s",
       frequency: "Every 5 minutes (M-F, 8am-4pm)",
-      nextRun: "-"
+      nextRun: "-",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const  ScraperStatus = () => {
       found: "0 New, 0 Updated",
       duration: "12.5s",
       frequency: "Daily at 2:00 AM",
-      nextRun: "In 13h 47m 30s"
+      nextRun: "In 13h 47m 30s",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const  ScraperStatus = () => {
       found: "3 New, 21 Updated",
       duration: "92.1s",
       frequency: "Every 15 minutes",
-      nextRun: "-"
+      nextRun: "-",
     },
     {
       id: 4,
@@ -45,15 +45,15 @@ const  ScraperStatus = () => {
       found: "88 New, 12 Updated",
       duration: "125.8s",
       frequency: "Weekly on Mondays at 5 AM",
-      nextRun: "30/06/2025"
-    }
+      nextRun: "30/06/2025",
+    },
   ];
 
   interface Scraper {
     id: number;
     name: string;
     url: string;
-    status: 'success' | 'error' | 'running' | 'idle' | string;
+    status: "success" | "error" | "running" | "idle" | string;
     lastRun: string;
     found: string;
     duration: string;
@@ -61,13 +61,18 @@ const  ScraperStatus = () => {
     nextRun: string;
   }
 
-  const getStatusColor = (status: Scraper['status']): string => {
+  const getStatusColor = (status: Scraper["status"]): string => {
     switch (status) {
-      case 'success': return 'bg-green-500';
-      case 'error': return 'bg-red-500';
-      case 'running': return 'bg-blue-500';
-      case 'idle': return 'bg-gray-500';
-      default: return 'bg-gray-500';
+      case "success":
+        return "bg-green-500";
+      case "error":
+        return "bg-red-500";
+      case "running":
+        return "bg-blue-500";
+      case "idle":
+        return "bg-gray-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
@@ -75,9 +80,11 @@ const  ScraperStatus = () => {
     <div className="bg-gray-50 min-h-screen p-6">
       <div className=" mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-900">Scraper Status & Monitoring</h1>
-          <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 leading-tight">
+            Scraper Status & Monitoring
+          </h1>
+          <div className="bg-red-500 text-white px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm lg:text-base font-medium whitespace-nowrap self-start sm:self-auto">
             1 Scraper(s) Failing
           </div>
         </div>
@@ -110,7 +117,11 @@ const  ScraperStatus = () => {
                   <tr key={scraper.id} className="hover:bg-gray-50">
                     <td className="py-4 px-6">
                       <div className="flex items-center">
-                        <div className={`w-3 h-3 rounded-full mr-3 ${getStatusColor(scraper.status)}`}></div>
+                        <div
+                          className={`w-3 h-3 rounded-full mr-3 ${getStatusColor(
+                            scraper.status
+                          )}`}
+                        ></div>
                         <div>
                           <div className="text-sm font-medium text-gray-900">
                             {scraper.name}
@@ -122,15 +133,25 @@ const  ScraperStatus = () => {
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{scraper.lastRun}</div>
-                      <div className="text-sm text-gray-500">Found: {scraper.found}</div>
-                      <div className="text-sm text-gray-500">Duration: {scraper.duration}</div>
+                      <div className="text-sm text-gray-900">
+                        {scraper.lastRun}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Found: {scraper.found}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Duration: {scraper.duration}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{scraper.frequency}</div>
+                      <div className="text-sm text-gray-900">
+                        {scraper.frequency}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{scraper.nextRun}</div>
+                      <div className="text-sm text-gray-900">
+                        {scraper.nextRun}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="flex items-center space-x-3">
