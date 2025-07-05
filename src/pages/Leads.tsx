@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const Leads = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('All');
-  const [campaignFilter, setCampaignFilter] = useState('All');
-  const [emotionFilter, setEmotionFilter] = useState('All');
-  const [dateFilter, setDateFilter] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
+  const [campaignFilter, setCampaignFilter] = useState("All");
+  const [emotionFilter, setEmotionFilter] = useState("All");
+  const [dateFilter, setDateFilter] = useState("");
 
   const leads = [
     {
@@ -19,7 +19,7 @@ const Leads = () => {
       source: "Apollo API",
       campaign: "Q4 Free Trial - Urgency Angle",
       emotion: "Anxiety",
-      offer: "$1.95 Trial"
+      offer: "$1.95 Trial",
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Leads = () => {
       source: "CSV Import",
       campaign: "Win-Back Email Sequence",
       emotion: "Curiosity",
-      offer: "Discounted Bundle"
+      offer: "Discounted Bundle",
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const Leads = () => {
       source: "Manual Entry",
       campaign: "None",
       emotion: "",
-      offer: ""
+      offer: "",
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ const Leads = () => {
       source: "Apollo API",
       campaign: "Q3 Summer Sale",
       emotion: "Fatigue",
-      offer: "$1.95 Trial"
+      offer: "$1.95 Trial",
     },
     {
       id: 5,
@@ -71,7 +71,7 @@ const Leads = () => {
       source: "CSV Import",
       campaign: "Q3 Summer Sale",
       emotion: "Urgency",
-      offer: "Free Trial"
+      offer: "Free Trial",
     },
     {
       id: 6,
@@ -84,25 +84,29 @@ const Leads = () => {
       source: "Manual Entry",
       campaign: "None",
       emotion: "Negative",
-      offer: ""
-    }
+      offer: "",
+    },
   ];
 
   const clearFilters = () => {
-    setSearchTerm('');
-    setStatusFilter('All');
-    setCampaignFilter('All');
-    setEmotionFilter('All');
-    setDateFilter('');
+    setSearchTerm("");
+    setStatusFilter("All");
+    setCampaignFilter("All");
+    setEmotionFilter("All");
+    setDateFilter("");
   };
 
-  const filteredLeads = leads.filter(lead => {
-    const matchesSearch = lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         lead.email.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === 'All' || lead.status === statusFilter;
-    const matchesCampaign = campaignFilter === 'All' || lead.campaign === campaignFilter;
-    const matchesEmotion = emotionFilter === 'All' || lead.emotion === emotionFilter;
-    
+  const filteredLeads = leads.filter((lead) => {
+    const matchesSearch =
+      lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.email.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus =
+      statusFilter === "All" || lead.status === statusFilter;
+    const matchesCampaign =
+      campaignFilter === "All" || lead.campaign === campaignFilter;
+    const matchesEmotion =
+      emotionFilter === "All" || lead.emotion === emotionFilter;
+
     return matchesSearch && matchesStatus && matchesCampaign && matchesEmotion;
   });
 
@@ -148,8 +152,12 @@ const Leads = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="All">Campaign: All</option>
-                <option value="Q4 Free Trial - Urgency Angle">Q4 Free Trial - Urgency Angle</option>
-                <option value="Win-Back Email Sequence">Win-Back Email Sequence</option>
+                <option value="Q4 Free Trial - Urgency Angle">
+                  Q4 Free Trial - Urgency Angle
+                </option>
+                <option value="Win-Back Email Sequence">
+                  Win-Back Email Sequence
+                </option>
                 <option value="Q3 Summer Sale">Q3 Summer Sale</option>
                 <option value="None">None</option>
               </select>
@@ -185,7 +193,9 @@ const Leads = () => {
             {/* Action Buttons */}
             <div className="flex gap-2">
               <button
-                onClick={() => {/* Apply filters logic */}}
+                onClick={() => {
+                  /* Apply filters logic */
+                }}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors"
               >
                 Apply Filters
@@ -240,27 +250,31 @@ const Leads = () => {
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${lead.statusBg} ${lead.statusColor}`}>
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${lead.statusBg} ${lead.statusColor}`}
+                      >
                         {lead.status}
                       </span>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{lead.lastContacted}</div>
+                      <div className="text-sm text-gray-900">
+                        {lead.lastContacted}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="text-sm text-gray-900">{lead.source}</div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{lead.campaign}</div>
+                      <div className="text-sm text-gray-900">
+                        {lead.campaign}
+                      </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="text-sm text-gray-500">
                         {lead.emotion && (
                           <div className="mb-1">Emotion: {lead.emotion}</div>
                         )}
-                        {lead.offer && (
-                          <div>Offer: {lead.offer}</div>
-                        )}
+                        {lead.offer && <div>Offer: {lead.offer}</div>}
                       </div>
                     </td>
                   </tr>

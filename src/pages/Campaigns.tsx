@@ -73,31 +73,31 @@ const Campaigns = () => {
     },
   ];
 
-  interface CampaignEngagement {
-    replies?: string;
-    opens?: string;
-    ctaClicks: string;
-    signups: string;
-  }
+  // interface CampaignEngagement {
+  //   replies?: string;
+  //   opens?: string;
+  //   ctaClicks: string;
+  //   signups: string;
+  // }
 
-  interface CampaignLeads {
-    current: number;
-    total: number;
-  }
+  // interface CampaignLeads {
+  //   current: number;
+  //   total: number;
+  // }
 
-  interface Campaign {
-    id: number;
-    name: string;
-    status: string;
-    statusColor: string;
-    targetSegment: string;
-    channel: string;
-    offer: string;
-    leads: CampaignLeads;
-    messagesSent: number;
-    engagement: CampaignEngagement;
-    trendData: number[];
-  }
+  // interface Campaign {
+  //   id: number;
+  //   name: string;
+  //   status: string;
+  //   statusColor: string;
+  //   targetSegment: string;
+  //   channel: string;
+  //   offer: string;
+  //   leads: CampaignLeads;
+  //   messagesSent: number;
+  //   engagement: CampaignEngagement;
+  //   trendData: number[];
+  // }
 
   const renderMiniChart = (data: number[]): React.ReactElement => {
     const max = Math.max(...data);
@@ -117,7 +117,7 @@ const Campaigns = () => {
         <polyline
           points={points}
           fill="none"
-          stroke="currentColor" 
+          stroke="currentColor"
           strokeWidth="2"
           className="drop-shadow-sm"
         />

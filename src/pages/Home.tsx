@@ -1,6 +1,6 @@
 "use client";
 
-import { User, DollarSign, TrendingUp, Calendar, Eye } from "lucide-react";
+import { DollarSign, TrendingUp, Calendar, Eye } from "lucide-react";
 import { TiHome } from "react-icons/ti";
 import {
   Card,
@@ -28,7 +28,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { Link } from "react-router-dom";
 import {
   auctionTrendsData,
   bidActivityData,

@@ -1,4 +1,3 @@
-import React from "react";
 import { Play, FileText } from "lucide-react";
 
 const ScraperStatus = () => {

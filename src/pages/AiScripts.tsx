@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Plus, FolderOpen, FileText, ChevronDown } from 'lucide-react';
+import React, { useState } from "react";
+import { Plus, FolderOpen, FileText, ChevronDown } from "lucide-react";
 
 const AIScriptsInterface = () => {
-  const [selectedFile, setSelectedFile] = useState('emotion_classifier.txt');
-  const [expandedFolders, setExpandedFolders] = useState<Record<string, boolean>>({ prompts: true, configs: true });
+  const [selectedFile, setSelectedFile] = useState("emotion_classifier.txt");
+  const [expandedFolders, setExpandedFolders] = useState<
+    Record<string, boolean>
+  >({ prompts: true, configs: true });
 
   const fileStructure: FileTreeItem[] = [
     {
@@ -12,46 +14,46 @@ const AIScriptsInterface = () => {
       children: [
         { type: "file", name: "emotion_classifier.txt", active: true },
         { type: "file", name: "empathetic_sms_generator.txt", active: false },
-        { type: "file", name: "urgency_sms_generator.txt", active: true }
-      ]
+        { type: "file", name: "urgency_sms_generator.txt", active: true },
+      ],
     },
     {
       type: "folder",
       name: "configs",
       children: [
-        { type: "file", name: "offer_logic_tiers.json", active: true }
-      ]
-    }
+        { type: "file", name: "offer_logic_tiers.json", active: true },
+      ],
+    },
   ];
 
   const fileContent: { [key: string]: string } = {
-    'emotion_classifier.txt': `Analyze the following text and classify the user's primary emotion. Your response must be a single word from this list: [Anxiety, Curiosity, Fatigue, Urgency, Worry, Positive, Negative, Neutral].
+    "emotion_classifier.txt": `Analyze the following text and classify the user's primary emotion. Your response must be a single word from this list: [Anxiety, Curiosity, Fatigue, Urgency, Worry, Positive, Negative, Neutral].
 
-Text: {{lead_message}}`
+Text: {{lead_message}}`,
   };
 
   interface FileItem {
-    type: 'file';
+    type: "file";
     name: string;
     active: boolean;
   }
 
   interface FolderItem {
-    type: 'folder';
+    type: "folder";
     name: string;
     children: FileTreeItem[];
   }
 
   type FileTreeItem = FileItem | FolderItem;
 
-  interface ExpandedFolders {
-    [key: string]: boolean;
-  }
+  // interface ExpandedFolders {
+  //   [key: string]: boolean;
+  // }
 
   const toggleFolder = (folderName: string) => {
     setExpandedFolders((prev) => ({
       ...prev,
-      [folderName]: !prev[folderName]
+      [folderName]: !prev[folderName],
     }));
   };
 
@@ -63,17 +65,20 @@ Text: {{lead_message}}`
     setSelectedFile(fileName);
   };
 
-  interface RenderFileTreeProps {
-    items: FileTreeItem[];
-    level?: number;
-  }
+  // interface RenderFileTreeProps {
+  //   items: FileTreeItem[];
+  //   level?: number;
+  // }
 
-  const renderFileTree = (items: FileTreeItem[], level: number = 0): React.ReactNode => {
+  const renderFileTree = (
+    items: FileTreeItem[],
+    level: number = 0
+  ): React.ReactNode => {
     return items.map((item: FileTreeItem, index: number) => (
       <div key={index} className={`ml-${level * 4}`}>
-        {item.type === 'folder' ? (
+        {item.type === "folder" ? (
           <div>
-            <div 
+            <div
               className="flex items-center py-1 px-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
               onClick={() => toggleFolder(item.name)}
             >
@@ -87,9 +92,11 @@ Text: {{lead_message}}`
             )}
           </div>
         ) : (
-          <div 
+          <div
             className={`flex items-center py-1 px-2 text-sm cursor-pointer rounded ml-4 ${
-              selectedFile === item.name ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-100'
+              selectedFile === item.name
+                ? "bg-blue-50 text-blue-700"
+                : "text-gray-700 hover:bg-gray-100"
             }`}
             onClick={() => selectFile(item.name)}
           >
@@ -120,9 +127,7 @@ Text: {{lead_message}}`
         </div>
 
         {/* File Tree */}
-        <div className="flex-1 p-4">
-          {renderFileTree(fileStructure)}
-        </div>
+        <div className="flex-1 p-4">{renderFileTree(fileStructure)}</div>
       </div>
 
       {/* Main Content */}
@@ -161,9 +166,13 @@ Text: {{lead_message}}`
           <div className="h-full">
             <textarea
               className="w-full h-full p-6 font-mono text-sm text-gray-900 resize-none border-none outline-none"
-              value={fileContent[selectedFile] || ''}
-              onChange={() => {/* Handle content change */}}
-              style={{ fontFamily: 'Monaco, Consolas, "Lucida Console", monospace' }}
+              value={fileContent[selectedFile] || ""}
+              onChange={() => {
+                /* Handle content change */
+              }}
+              style={{
+                fontFamily: 'Monaco, Consolas, "Lucida Console", monospace',
+              }}
               placeholder="Enter your script content here..."
             />
           </div>
