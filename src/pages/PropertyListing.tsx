@@ -85,15 +85,18 @@ const PropertyListing = () => {
               <TableHeader>
                 <TableRow className="bg-gray-50 dark:bg-[#0f1527] dark:text-white font-bold">
                   <TableHead className="whitespace-nowrap">ADDRESS</TableHead>
-                  <TableHead className="whitespace-nowrap">
-                    DATE & TIME
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap">
-                    OPENING BID
-                  </TableHead>
-                  <TableHead className="whitespace-nowrap">BIDS</TableHead>
+                  <TableHead className="whitespace-nowrap">City</TableHead>
+                  <TableHead className="whitespace-nowrap">OP. BID</TableHead>
+                  <TableHead className="whitespace-nowrap">ARV</TableHead>
+                  <TableHead className="whitespace-nowrap">Equity</TableHead>
+                  <TableHead className="whitespace-nowrap">Bids</TableHead>
+
+                  {/* <TableHead className="whitespace-nowrap">BIDS</TableHead> */}
                   <TableHead className="whitespace-nowrap">
                     PROPERTY NOTE
+                  </TableHead>
+                  <TableHead className="whitespace-nowrap">
+                    Countdowns
                   </TableHead>
                   <TableHead className="whitespace-nowrap">STATUS</TableHead>
                   <TableHead className="whitespace-nowrap">LOG</TableHead>
@@ -116,18 +119,35 @@ const PropertyListing = () => {
                       </div>
                     </TableCell>
                     <TableCell className="py-4 whitespace-nowrap">
-                      <div>
+                      {/* <div>
                         <div className="text-gray-900 dark:text-white">
                           {property.date}
                         </div>
                         <div className="text-sm text-gray-500">
                           {property.time}
                         </div>
+                      </div> */}
+                      {property.city}
+                    </TableCell>
+                    <TableCell className="py-4 whitespace-nowrap">
+                      <p className="text-blue-600 font-medium">
+                        {property.openingBid}
+                      </p>
+                      <div>
+                        <p className="text-gray-500">AS - is: $350,000.00</p>
+                        <p className="text-gray-500">ARV: $350,000.00</p>
+                        <p className="text-gray-500">
+                          Lien Position:{" "}
+                          <span className="text-black font-bold">First</span>
+                        </p>
                       </div>
                     </TableCell>
                     <TableCell className="py-4 whitespace-nowrap">
-                      <span className="text-blue-600 font-medium">
-                        {property.openingBid}
+                      <span className=" font-medium">{property.ARV}</span>
+                    </TableCell>
+                    <TableCell className="py-4 whitespace-nowrap ">
+                      <span className=" font-medium bg-[#25a587] rounded-xs text-white p-1">
+                        {property.equity}
                       </span>
                     </TableCell>
                     <TableCell className="py-4 whitespace-nowrap">
@@ -156,9 +176,20 @@ const PropertyListing = () => {
                       <p className="flex justify-end items-center mt-2 me-2">
                         Title Report:
                         <span className="ml-2 cursor-pointer">
-                          <FaFilePdf className="text-red-500" />
+                          <FaFilePdf className="text-red-500 text-lg" />
                         </span>
                       </p>
+                    </TableCell>
+                    <TableCell className="text-center whitespace-nowrap">
+                      {property.CountDowns === "Ends In" ? (
+                        <span className="bg-[#2233d3] text-white px-2 py-1 rounded-md font-medium">
+                          {property.CountDowns}
+                        </span>
+                      ) : (
+                        <span className="text-green-600 font-medium">
+                          {property.CountDowns}
+                        </span>
+                      )}
                     </TableCell>
                     <TableCell className="py-4 whitespace-nowrap">
                       <Badge
