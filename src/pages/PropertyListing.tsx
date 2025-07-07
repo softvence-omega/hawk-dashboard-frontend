@@ -21,6 +21,7 @@ import { propertyData } from "@/lib/data/propertyData";
 import { Link } from "react-router-dom";
 import { Textarea } from "@/components/ui/textarea";
 import PropertyModal from "@/components/Property/PropertyModal";
+import { FaFilePdf } from "react-icons/fa6";
 
 const PropertyListing = () => {
   return (
@@ -152,6 +153,12 @@ const PropertyListing = () => {
                         readOnly
                         value={property.propertyNote}
                       />
+                      <p className="flex justify-end items-center mt-2 me-2">
+                        Title Report:
+                        <span className="ml-2 cursor-pointer">
+                          <FaFilePdf className="text-red-500" />
+                        </span>
+                      </p>
                     </TableCell>
                     <TableCell className="py-4 whitespace-nowrap">
                       <Badge
