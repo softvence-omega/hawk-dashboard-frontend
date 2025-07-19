@@ -216,7 +216,7 @@ const Sidebar = () => {
                                   hover:bg-white hover:text-black dark:hover:bg-primary
                                   ${
                                     isActive
-                                      ? "bg-white text-black dark:bg-primary"
+                                      ? "bg-white text-black dark:bg-primary dark:text-white"
                                       : ""
                                   }`
                                 }
@@ -234,10 +234,10 @@ const Sidebar = () => {
                             onClick={isMobile ? toggle : undefined}
                             className={({ isActive }) =>
                               `flex items-center justify-start p-2 rounded-lg transition-colors
-                              hover:bg-white hover:text-black dark:hover:bg-primary
+                              hover:bg-white hover:text-black dark:hover:bg-primary dark:hover:text-white
                               ${
                                 isActive
-                                  ? "bg-white text-black dark:bg-primary"
+                                  ? "bg-white text-black dark:bg-primary dark:text-white"
                                   : ""
                               }`
                             }
