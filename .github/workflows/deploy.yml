@@ -37,6 +37,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist  # This is the folder Vite builds to
+        local-dir: /dist  # This is the folder Vite builds to
         server-dir: /public_html  # Corrected to use server-dir
         port: ${{ secrets.FTP_PORT }}
