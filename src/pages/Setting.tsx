@@ -46,14 +46,14 @@ export default function ProfileSettings() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-black p-6">
       <div className="max-w-4xl mx-auto">
-        <Card className="bg-white border border-gray-200">
+        <Card className="bg-white dark:bg-accent border border-gray-200">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold text-gray-900">
+            <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
               Profile Information
             </CardTitle>
-            <CardDescription className="text-gray-600">
+            <CardDescription className="text-gray-600 dark:text-white">
               Update your personal information and profile details.
             </CardDescription>
           </CardHeader>
@@ -82,7 +82,7 @@ export default function ProfileSettings() {
                     <Camera className="w-4 h-4 mr-2" />
                     Change Avatar
                   </Button>
-                  <p className="text-sm text-gray-500 mt-2">
+                  <p className="text-sm text-gray-500 dark:text-white mt-2">
                     JPG, GIF or PNG. 1MB max.
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="firstName"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     First Name
                   </Label>
@@ -108,7 +108,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="lastName"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     Last Name
                   </Label>
@@ -124,7 +124,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="email"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     Email Address
                   </Label>
@@ -138,7 +138,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="phone"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     Phone Number
                   </Label>
@@ -154,7 +154,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="company"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     Company
                   </Label>
@@ -167,7 +167,7 @@ export default function ProfileSettings() {
                 <div>
                   <Label
                     htmlFor="position"
-                    className="text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700 dark:text-white"
                   >
                     Position
                   </Label>
@@ -182,7 +182,7 @@ export default function ProfileSettings() {
               <div>
                 <Label
                   htmlFor="bio"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-gray-700 dark:text-white"
                 >
                   Bio
                 </Label>

@@ -38,9 +38,9 @@ import {
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50  dark:bg-black">
       {/* Header */}
-      {/* <header className="bg-white border-b border-gray-200 px-6 py-4">
+      {/* <header className="bg-white dark:bg-accent border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-gray-900">Admin Dashboard</span>
@@ -62,25 +62,25 @@ const Home = () => {
       <main className="p-6">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             Welcome back, Admin
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-200">
             Here's what's happening with your property auctions today.
           </p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-gray-600 dark:text-white">
                 Total Properties
               </CardTitle>
-              <TiHome className="h-4 w-4 text-blue-600" />
+              <TiHome className="h-4 w-4 text-blue-600 " />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">147</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">147</div>
               <p className="text-xs text-green-600 flex items-center mt-1">
                 <TrendingUp className="h-3 w-3 mr-1" />
                 +12% from last month
@@ -88,15 +88,15 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-gray-600 dark:text-white">
                 Active Auctions
               </CardTitle>
               <Calendar className="h-4 w-4 text-green-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">45</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">45</div>
               <p className="text-xs text-green-600 flex items-center mt-1">
                 <TrendingUp className="h-3 w-3 mr-1" />
                 +8% from last week
@@ -104,15 +104,15 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-gray-600 dark:text-white">
                 Total Revenue
               </CardTitle>
               <DollarSign className="h-4 w-4 text-purple-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">$2.1M</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">$2.1M</div>
               <p className="text-xs text-green-600 flex items-center mt-1">
                 <TrendingUp className="h-3 w-3 mr-1" />
                 +23% from last month
@@ -120,15 +120,15 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-gray-600 dark:text-white">
                 Avg. Property Value
               </CardTitle>
               <Eye className="h-4 w-4 text-orange-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">$287K</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">$287K</div>
               <p className="text-xs text-green-600 flex items-center mt-1">
                 <TrendingUp className="h-3 w-3 mr-1" />
                 +5% from last month
@@ -140,12 +140,12 @@ const Home = () => {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Revenue Trend Chart */}
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-gray-900">
+              <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
                 Revenue Trends
               </CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardDescription className="text-gray-600 dark:text-white">
                 Monthly revenue and property sales
               </CardDescription>
             </CardHeader>
@@ -188,12 +188,12 @@ const Home = () => {
           </Card>
 
           {/* Property Status Distribution */}
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-gray-900">
+              <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
                 Property Status
               </CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardDescription className="text-gray-600 dark:text-white">
                 Distribution of property statuses
               </CardDescription>
             </CardHeader>
@@ -229,12 +229,12 @@ const Home = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Bid Activity Chart */}
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-gray-900">
+              <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
                 Weekly Bid Activity
               </CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardDescription className="text-gray-600 dark:text-white">
                 Accepted, rejected, and pending bids
               </CardDescription>
             </CardHeader>
@@ -276,12 +276,12 @@ const Home = () => {
           </Card>
 
           {/* Auction Trends */}
-          <Card className="bg-white border border-gray-200">
+          <Card className="bg-white dark:bg-accent border border-gray-200">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-gray-900">
+              <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
                 Auction Trends
               </CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardDescription className="text-gray-600 dark:text-white">
                 Average prices and auction volume
               </CardDescription>
             </CardHeader>
@@ -325,12 +325,12 @@ const Home = () => {
         </div>
 
         {/* Recent Activity */}
-        <Card className="bg-white border border-gray-200">
+        <Card className="bg-white dark:bg-accent border border-gray-200">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold text-gray-900">
+            <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
               Recent Activity
             </CardTitle>
-            <CardDescription className="text-gray-600">
+            <CardDescription className="text-gray-600 dark:text-white">
               Latest updates from your property auctions
             </CardDescription>
           </CardHeader>
@@ -339,7 +339,7 @@ const Home = () => {
               {recentActivities.map((activity) => (
                 <div
                   key={activity.id}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  className="flex items-center justify-between p-4 bg-gray-50 dark:bg-accent border border-gray-200 rounded-lg"
                 >
                   <div className="flex items-center gap-3">
                     <div
@@ -354,7 +354,7 @@ const Home = () => {
                       }`}
                     />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">
                         {activity.message}
                       </p>
                       <p className="text-xs text-gray-500">{activity.time}</p>
@@ -380,7 +380,7 @@ const Home = () => {
             <div className="mt-4 text-center">
               <Button
                 variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="border-gray-300 text-gray-700 dark:text-white hover:bg-gray-50"
               >
                 View All Activity
               </Button>

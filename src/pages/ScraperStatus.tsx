@@ -76,11 +76,11 @@ const ScraperStatus = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
+    <div className="bg-gray-50 dark:bg-black min-h-screen p-6">
       <div className=" mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 leading-tight">
+          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 dark:text-white leading-tight">
             Scraper Status & Monitoring
           </h1>
           <div className="bg-red-500 text-white px-2 py-1 sm:px-3 sm:py-1 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm lg:text-base font-medium whitespace-nowrap self-start sm:self-auto">
@@ -89,31 +89,31 @@ const ScraperStatus = () => {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-accent rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200">
                 <tr>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Source Name
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Last Run Result
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Frequency
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Next Scheduled Run
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {scrapers.map((scraper) => (
-                  <tr key={scraper.id} className="hover:bg-gray-50">
+                  <tr key={scraper.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                     <td className="py-4 px-6">
                       <div className="flex items-center">
                         <div
@@ -122,43 +122,43 @@ const ScraperStatus = () => {
                           )}`}
                         ></div>
                         <div>
-                          <div className="text-sm font-medium text-gray-900">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white">
                             {scraper.name}
                           </div>
-                          <div className="text-sm text-blue-600 hover:text-blue-800">
+                          <div className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800">
                             {scraper.url}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {scraper.lastRun}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 dark:text-white">
                         Found: {scraper.found}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 dark:text-white">
                         Duration: {scraper.duration}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {scraper.frequency}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {scraper.nextRun}
                       </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="flex items-center space-x-3">
-                        <button className="flex items-center text-sm text-gray-600 hover:text-gray-900">
+                        <button className="flex items-center text-sm text-gray-600 dark:text-white hover:text-gray-900">
                           <Play className="w-4 h-4 mr-1" />
                           Run Now
                         </button>
-                        <button className="flex items-center text-sm text-gray-600 hover:text-gray-900">
+                        <button className="flex items-center text-sm text-gray-600 dark:text-white hover:text-gray-900">
                           <FileText className="w-4 h-4 mr-1" />
                           View Log
                         </button>

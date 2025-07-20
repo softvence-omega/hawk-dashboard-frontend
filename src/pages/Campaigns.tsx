@@ -126,11 +126,11 @@ const Campaigns = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
+    <div className="bg-gray-50 dark:bg-black min-h-screen p-6">
       <div className=" mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 leading-tight">
+          <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 dark:text-white leading-tight">
             AI Campaign Management
           </h1>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base lg:text-lg whitespace-nowrap self-start sm:self-auto">
@@ -139,89 +139,89 @@ const Campaigns = () => {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-accent rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200">
                 <tr>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Campaign Name & Status
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Target Segment
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Channel & Offer
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Progress & Volume
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Engagement Funnel
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Performance Trend (7D)
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {campaigns.map((campaign) => (
-                  <tr key={campaign.id} className="hover:bg-gray-50">
+                  <tr key={campaign.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                     <td className="py-4 px-6">
                       <div className="flex items-center">
                         <div
                           className={`w-2 h-2 rounded-full mr-3 ${campaign.statusColor}`}
                         ></div>
                         <div>
-                          <div className="text-sm font-medium text-gray-900 mb-1">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white mb-1">
                             {campaign.name}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 dark:text-white">
                             {campaign.status}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {campaign.targetSegment}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900 mb-1">
+                      <div className="text-sm text-gray-900 dark:text-white mb-1">
                         Channel: {campaign.channel}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 dark:text-white">
                         Offer: {campaign.offer}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900 mb-1">
+                      <div className="text-sm text-gray-900 dark:text-white mb-1">
                         Leads: {campaign.leads.current} / {campaign.leads.total}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 dark:text-white">
                         Messages Sent: {campaign.messagesSent}
                       </div>
                     </td>
                     <td className="py-4 px-6">
                       <div className="space-y-1">
                         {campaign.engagement.replies && (
-                          <div className="text-sm text-gray-900">
+                          <div className="text-sm text-gray-900 dark:text-white">
                             Replies: {campaign.engagement.replies}
                           </div>
                         )}
                         {campaign.engagement.opens && (
-                          <div className="text-sm text-gray-900">
+                          <div className="text-sm text-gray-900 dark:text-white">
                             Opens: {campaign.engagement.opens}
                           </div>
                         )}
-                        <div className="text-sm text-gray-900">
+                        <div className="text-sm text-gray-900 dark:text-white">
                           CTA Clicks: {campaign.engagement.ctaClicks}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-500 dark:text-white">
                           Signups (CVR): {campaign.engagement.signups}
                         </div>
                       </div>

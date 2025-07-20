@@ -79,10 +79,10 @@ Text: {{lead_message}}`,
         {item.type === "folder" ? (
           <div>
             <div
-              className="flex items-center py-1 px-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer rounded"
+              className="flex items-center py-1 px-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 cursor-pointer rounded"
               onClick={() => toggleFolder(item.name)}
             >
-              <FolderOpen className="w-4 h-4 mr-2 text-gray-500" />
+              <FolderOpen className="w-4 h-4 mr-2 text-gray-500 dark:text-whtie" />
               <span className="font-medium">{item.name}</span>
             </div>
             {expandedFolders[item.name] && (
@@ -95,8 +95,8 @@ Text: {{lead_message}}`,
           <div
             className={`flex items-center py-1 px-2 text-sm cursor-pointer rounded ml-4 ${
               selectedFile === item.name
-                ? "bg-blue-50 text-blue-700"
-                : "text-gray-700 hover:bg-gray-100"
+                ? "bg-blue-50 dark:bg-gray-700 dark:text-blue-50 text-blue-700"
+                : "text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white"
             }`}
             onClick={() => selectFile(item.name)}
           >
@@ -112,13 +112,13 @@ Text: {{lead_message}}`,
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50 dark:bg-black">
       {/* Sidebar */}
-      <div className="w-80 bg-white border-r border-gray-200 flex flex-col">
+      <div className="w-80 bg-white dark:bg-accent border rounded border-r border-gray-200 flex flex-col">
         {/* Header */}
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">AI Scripts</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">AI Scripts</h2>
             <button className="flex items-center text-sm text-blue-600 hover:text-blue-700 font-medium">
               <Plus className="w-4 h-4 mr-1" />
               Add Script
@@ -133,25 +133,25 @@ Text: {{lead_message}}`,
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Editor Header */}
-        <div className="bg-white border-b border-gray-200 p-4">
+        <div className="bg-white dark:bg-accent border-b border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-medium text-gray-900">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 prompts/{selectedFile}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-gray-500 dark:text-white mt-1">
                 Last Modified: 2 days ago
               </p>
             </div>
             <div className="flex items-center space-x-3">
-              <button className="text-sm text-gray-600 hover:text-gray-900">
+              <button className="text-sm text-gray-600 hover:text-gray-900 dark:text-white">
                 Save
               </button>
-              <div className="flex items-center text-sm text-gray-600 hover:text-gray-900 cursor-pointer">
+              <div className="flex items-center text-sm text-gray-600 hover:text-gray-900 dark:text-white cursor-pointer">
                 <span>Versions (3)</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </div>
-              <button className="text-sm text-gray-600 hover:text-gray-900">
+              <button className="text-sm text-gray-600 hover:text-gray-900 dark:text-white">
                 Test
               </button>
               <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium">
@@ -162,10 +162,10 @@ Text: {{lead_message}}`,
         </div>
 
         {/* Code Editor */}
-        <div className="flex-1 bg-white">
+        <div className="flex-1 bg-white dark:bg-accent border rounded overflow-hidden">
           <div className="h-full">
             <textarea
-              className="w-full h-full p-6 font-mono text-sm text-gray-900 resize-none border-none outline-none"
+              className="w-full h-full p-6 font-mono text-sm text-gray-900 dark:text-white resize-none border-none outline-none"
               value={fileContent[selectedFile] || ""}
               onChange={() => {
                 /* Handle content change */

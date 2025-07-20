@@ -111,10 +111,10 @@ const Leads = () => {
   });
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
+    <div className="bg-gray-50 dark:bg-black min-h-screen p-6">
       <div className=" mx-auto">
         {/* Filters Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+        <div className="bg-white dark:bg-accent rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
           <div className="flex flex-wrap gap-4 items-end">
             {/* Search Input */}
             <div className="flex-1 min-w-64">
@@ -211,40 +211,40 @@ const Leads = () => {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-accent rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200">
                 <tr>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Lead Info
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Last Contacted
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Source
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Assigned Campaign
                   </th>
-                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="text-left py-3 px-6 text-sm font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     AI Profile
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {filteredLeads.map((lead) => (
-                  <tr key={lead.id} className="hover:bg-gray-50">
+                  <tr key={lead.id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
                     <td className="py-4 px-6">
                       <div>
-                        <div className="text-sm font-medium text-gray-900 mb-1">
+                        <div className="text-sm font-medium text-gray-900 dark:text-white mb-1">
                           {lead.name}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-500 dark:text-white">
                           {lead.email}
                         </div>
                       </div>
@@ -257,20 +257,20 @@ const Leads = () => {
                       </span>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {lead.lastContacted}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">{lead.source}</div>
+                      <div className="text-sm text-gray-900 dark:text-white">{lead.source}</div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-900">
+                      <div className="text-sm text-gray-900 dark:text-white">
                         {lead.campaign}
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 dark:text-white">
                         {lead.emotion && (
                           <div className="mb-1">Emotion: {lead.emotion}</div>
                         )}

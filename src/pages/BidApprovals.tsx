@@ -114,7 +114,7 @@ const BidApproval = () => {
 
   return (
     <div className="p-6  mx-auto">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Bid Approvals</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Bid Approvals</h1>
 
       {/* Custom Tab Navigation */}
       <div className="border-b border-gray-200 mb-6">
@@ -124,7 +124,7 @@ const BidApproval = () => {
             className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
               activeTab === "pending"
                 ? "border-blue-500 text-blue-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                : "border-transparent text-gray-500 dark:text-white hover:text-gray-700  hover:border-gray-300"
             }`}
           >
             <div className="flex items-center space-x-2">
@@ -142,7 +142,7 @@ const BidApproval = () => {
             className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
               activeTab === "history"
                 ? "border-blue-500 text-blue-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                : "border-transparent text-gray-500 dark:text-white hover:text-gray-700 hover:border-gray-300"
             }`}
           >
             Approval History
@@ -156,16 +156,16 @@ const BidApproval = () => {
           {pendingBids.map((bid) => (
             <div
               key={bid.id}
-              className="bg-white border border-gray-200 rounded-2xl shadow transition-all hover:shadow-lg p-6"
+              className="bg-white dark:bg-accent  border border-gray-200 rounded-2xl shadow transition-all hover:shadow-lg p-6"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                     {bid.address}
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 dark:text-white">
                     Submitted {bid.submittedTime} by{" "}
-                    <span className="font-medium text-gray-700">
+                    <span className="font-medium text-gray-700 dark:text-white">
                       {bid.submittedBy}
                     </span>
                   </p>
@@ -174,19 +174,19 @@ const BidApproval = () => {
 
               <div className="grid grid-cols-3 gap-4 mb-5">
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">SUBMITTED BID</p>
+                  <p className="text-xs text-gray-500 dark:text-white mb-1">SUBMITTED BID</p>
                   <p className="text-lg font-bold text-blue-600">
                     {formatCurrency(bid.submittedBid)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">AI 75% OFFER</p>
-                  <p className="text-lg font-semibold text-gray-800">
+                  <p className="text-xs text-gray-500 dark:text-white mb-1">AI 75% OFFER</p>
+                  <p className="text-lg font-semibold text-gray-800 dark:text-white">
                     {formatCurrency(bid.aiOffer)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">VARIANCE</p>
+                  <p className="text-xs text-gray-500 dark:text-white mb-1">VARIANCE</p>
                   <p className="text-lg font-semibold text-red-500">
                     +{formatCurrency(bid.variance)}
                   </p>
@@ -194,17 +194,17 @@ const BidApproval = () => {
               </div>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {/* Left Column */}
-                <div className="grid gap-3 bg-gray-50 rounded-lg p-4">
+                <div className="grid gap-3 bg-gray-50  dark:bg-accent border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-gray-500 uppercase">
+                    <span className="text-xs font-medium text-gray-500 dark:text-white uppercase">
                       AI ARV
                     </span>
-                    <span className="text-base font-semibold text-gray-800">
+                    <span className="text-base font-semibold text-gray-800 dark:text-white">
                       {formatCurrency(bid.aiArv)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-gray-500 uppercase">
+                    <span className="text-xs font-medium text-gray-500 dark:text-white uppercase">
                       Potential Profit
                     </span>
                     <span className="text-base font-semibold text-green-600">
@@ -214,17 +214,17 @@ const BidApproval = () => {
                 </div>
 
                 {/* Right Column */}
-                <div className="grid gap-3 bg-gray-50 rounded-lg p-4">
+                <div className="grid gap-3 bg-gray-50  dark:bg-accent border border-gray-200 rounded-lg p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-gray-500 uppercase">
+                    <span className="text-xs font-medium text-gray-500 dark:text-white uppercase">
                       Est. Rehab Cost
                     </span>
-                    <span className="text-base font-semibold text-gray-800">
+                    <span className="text-base font-semibold text-gray-800 dark:text-white">
                       {formatCurrency(bid.estRehabCost)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-gray-500 uppercase">
+                    <span className="text-xs font-medium text-gray-500 dark:text-white uppercase">
                       Potential ROI
                     </span>
                     <span className="text-base font-semibold text-indigo-600">
@@ -251,38 +251,38 @@ const BidApproval = () => {
       )}
 
       {activeTab === "history" && (
-        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <div className="bg-white dark:bg-accent border border-gray-200 rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50  dark:bg-accent border border-gray-200border-b border-gray-200">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Property Address
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Submitted Bid
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Final Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Decided By
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Decision Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider">
                     Rejection Reason
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-accent divide-y divide-gray-200">
                 {approvalHistory.map((item) => (
-                  <tr key={item.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <tr key={item.id} className="hover:bg-gray-700">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                       {item.address}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                       {formatCurrency(item.submittedBid)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -301,13 +301,13 @@ const BidApproval = () => {
                         {item.finalStatus}
                       </Badge>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                       {item.decidedBy}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                       {item.decisionDate}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                       {item.rejectionReason || "-"}
                     </td>
                   </tr>
