@@ -3,40 +3,40 @@ name: Deploy Vite React App to Namecheap Hosting via FTP
 on:
   push:
     branches:
-      - main  # Trigger deployment when changes are pushed to the 'main' branch
+      - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout code
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Step 2: Set up Node.js (use the version required for your project)
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'  # Adjust based on your project's Node.js version
+        node-version: '20'
 
-    # Step 3: Install dependencies
     - name: Install dependencies
       run: |
         npm install
 
-    # Step 4: Build the React app using Vite
-    - name: Build React app with Vite
+    - name: Build the React app using Vite
       run: |
         npm run build
 
-    # Step 5: Deploy build to server via FTP
+    - name: List dist directory contents
+      run: |
+        ls -la ./dist/
+
     - name: Deploy to Namecheap Hosting via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/  # This is the folder Vite builds to
-        server-dir: /admin.ezdealhub.net  # Assuming you want to deploy to this subdirectory
+        local-dir: ./dist/
+        server-dir: /public_html/admin.ezdealhub.net/
         port: ${{ secrets.FTP_PORT }}
+        protocol: ftps
