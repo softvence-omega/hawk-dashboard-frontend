@@ -37,6 +37,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: /dist/  # This is the folder Vite builds to
-        server-dir: /admin.ezdealhub.net  # Corrected to use server-dir
+        local-dir: ./dist/  # This is the folder Vite builds to
+        server-dir: /admin.ezdealhub.net  # Assuming you want to deploy to this subdirectory
         port: ${{ secrets.FTP_PORT }}
